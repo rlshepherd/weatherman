@@ -14,7 +14,7 @@ Weatherman is an automated weather station, built with arduino, raspberry-pi, an
 
 
 
-You can find the source code for Minima at GitHub:
+You can find the source code for Weatherman at GitHub:
 [rlshepherd](https://github.com/rlshepherd) /
 [weather](https://github.com/rlshepherd/weather)
 
@@ -22,7 +22,7 @@ You can find the source code for Minima at GitHub:
 Weatherman was inspired by the Taiwan weather station application, which lets you monitor weather conditions, including air pollution in real time. Unfortunately, our neighborhood didn't have a weather station. So we decided to create weatherman to give us and our neighbors real time updates on weather and air quality conditions. 
 
 You can follow my weatherman's reports on Twitter: 
-[花園新城weatherman](https://twitter.com/weather26952214)i
+[花園新城weatherman](https://twitter.com/weather26952214)
 
 ## Using this website:
 If you want to build your own weather man using this project as a starting point, you can start with the earliest blog posts and work your way forward in time. Any optional steps are included in posts marked *(optional)*. 
