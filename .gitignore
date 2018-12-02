@@ -1,0 +1,4 @@
+_site/
+.sass-cache/
+raspberry-pi/weather.db
+raspberry-pi/weatherman.log
