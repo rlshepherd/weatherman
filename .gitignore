@@ -2,3 +2,5 @@ _site/
 .sass-cache/
 raspberry-pi/weather.db
 raspberry-pi/weatherman.log
+server/weather.db
+server/.app.rb.swp
