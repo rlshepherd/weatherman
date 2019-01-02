@@ -4,18 +4,72 @@ title:  "Getting Started with Arduino"
 date:   2018-11-20 00:47:35 -0800
 categories: arduino weatherman update hardware
 ---
-You can read about the goals of the weatherman project 
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+## Planning
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+[Fritzing](http://www.fritzing.org) is an open source tool for documenting
+electronics prototypes especially popular in the arduino community. I found
+a [similar project](http://fritzing.org/projects/digital-thermometer-with-dht11/)
+to use as a starting point. 
+
+## Tools
+
+I needed the following components: 
+
+1. Arduino
+2. DHT11 Temperature and Humidity Sensor
+3. Some electrical components and tools (e.g. cables, breadboard)
+
+    I also had to have them shipped to Manila, where I was working at the time.
+Luckily I found this really nice site [Makerlab Electronics](www.makerlab-electronics.com)
+    which carried everything I needed to get started.
+
+Later on, back in Taipei, there were plently of parts and expertise available at [Guanghua Digital Plaza](https://en.wikipedia.org/wiki/Guang_Hua_Digital_Plaza).
+
+## Assembly and Drive Code
+
+Following great tutorials from [Circuit Basics](http://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/) and on [Simple Circuits](https://simple-circuit.com/arduino-dht11-sensor-lcd-proteus/), I was able to get up an running in no time.
+
+![Complete Circuit](/assets/arduinocircuit.jpg).
+
+Here is the final code which writes the sensor output to both the LCD display
+and the arduino's serial port (which we will need in the next step).:
+
+```c
+
+#include <dht.h>
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+dht DHT;
+
+#define DHT11_PIN 7
+
+void setup(){
+  lcd.begin(16, 2);
+  Serial.begin(9600);
+
+}
+
+void loop()
+{
+  int chk = DHT.read11(DHT11_PIN);
+  Serial.print("Temperature = ");
+  Serial.println(DHT.temperature);
+  Serial.print("Humidity = ");
+  Serial.println(DHT.humidity);
+  lcd.setCursor(0,0); 
+  lcd.print("Temp: ");
+  lcd.print(DHT.temperature);
+  lcd.print((char)223);
+  lcd.print("C");
+  lcd.setCursor(0,1);
+  lcd.print("Humidity: ");
+  lcd.print(DHT.humidity);
+  lcd.print("%");
+  delay(2000);
+}
+
+```
