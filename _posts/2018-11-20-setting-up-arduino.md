@@ -5,25 +5,29 @@ date:   2018-11-20 00:47:35 -0800
 categories: arduino weatherman update hardware
 ---
 
+The first step in setting up our weather station was getting some hardware. Having never touched
+an arduino or raspberry-pi before, this was the most exciting part.
 
 ## Planning
 
 [Fritzing](http://www.fritzing.org) is an open source tool for documenting
 electronics prototypes especially popular in the arduino community. I found
 a [similar project](http://fritzing.org/projects/digital-thermometer-with-dht11/)
-to use as a starting point. 
+to use as a starting point. You can see a copy of the diagram here:
 
-## Tools
+![Diagram](/weatherman/assets/diagram.png)
 
-I needed the following components: 
+## Equipment
+
+A bit of research led to a simple list of basic equipment to get started: 
 
 1. Arduino
 2. DHT11 Temperature and Humidity Sensor
 3. Some electrical components and tools (e.g. cables, breadboard)
 
-    I also had to have them shipped to Manila, where I was working at the time.
+I also had to have these items shipped to Manila, where I was working at the time.
 Luckily I found this really nice site [Makerlab Electronics](www.makerlab-electronics.com)
-    which carried everything I needed to get started.
+which carried everything I needed to get started.
 
 Later on, back in Taipei, there were plently of parts and expertise available at [Guanghua Digital Plaza](https://en.wikipedia.org/wiki/Guang_Hua_Digital_Plaza).
 
@@ -31,7 +35,7 @@ Later on, back in Taipei, there were plently of parts and expertise available at
 
 Following great tutorials from [Circuit Basics](http://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/) and on [Simple Circuits](https://simple-circuit.com/arduino-dht11-sensor-lcd-proteus/), I was able to get up an running in no time.
 
-![Complete Circuit](/assets/arduinocircuit.jpg).
+![Complete Circuit](/weatherman/assets/arduinocircuit.png)
 
 Here is the final code which writes the sensor output to both the LCD display
 and the arduino's serial port (which we will need in the next step).:
@@ -73,3 +77,5 @@ void loop()
 }
 
 ```
+
+In the following posts we'll add a raspberry-pi to host a database and webserver.
